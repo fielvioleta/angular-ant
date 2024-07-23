@@ -19,11 +19,16 @@ export class AppComponent {
 
     this.breadcrumbService.breadcrumbs$.subscribe((breadcrumbs: any) => {
       this.breadcrumbs = breadcrumbs
-      console.log(breadcrumbs)
     });
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
+  }
+
+  formatLabel(label: string): string {
+    return label
+      .replace(/-/g, ' ') // Replace hyphens with spaces
+      .replace(/\b\w/g, char => char.toUpperCase()); // Capitalize the first letter of each word
   }
 }

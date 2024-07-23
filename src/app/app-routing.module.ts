@@ -4,10 +4,10 @@ import { WorkbenchComponent } from './workbench/workbench.component';
 import { GenesisComponent } from './genesis/genesis.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { StudioComponent } from './studio/studio.component';
+import { ModelDevelopmentComponent } from './model-development/model-development.component';
+import { ModelValidationComponent } from './model-validation/model-validation.component';
 
 const routes: Routes = [
-  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-
   { 
     path: 'workbench', 
     component: WorkbenchComponent,
@@ -19,6 +19,16 @@ const routes: Routes = [
               {
                   path: 'projects',
                   component: ProjectsComponent,
+                  children: [
+                    {
+                      path: 'model-development',
+                      component: ModelDevelopmentComponent
+                    },
+                    {
+                      path: 'model-validation',
+                      component: ModelValidationComponent
+                    }
+                  ]
               },
               {
                 path: 'studio',

@@ -8,7 +8,7 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
+        <h1>RDC</h1>
       </a>
     </div>
 
@@ -19,21 +19,19 @@
           nz-tooltip
           nzTooltipPlacement="right"
           routerLink="/welcome"
-          nzSelected
         >
           <span nz-icon nzType="dashboard"></span>
           <span>{{'sideMenudashboard' | translate}}</span>
       </li>
-    
 
       <li nz-submenu nzOpen [nzTitle]="'sideMenuworkbench' | translate" nzIcon="github">
         <ul>
           <li nz-submenu [nzTitle]="'SIDEMENU-submenuGenesis' | translate">
             <ul>
-              <li nz-menu-item>
+              <li nz-menu-item routerLink="/workbench/genesis/projects">
                 <a>{{'SIDEMENU-submenuProjects' | translate}}</a>
               </li>
-              <li nz-menu-item>
+              <li nz-menu-item routerLink="/workbench/genesis/studio">
                 <a>{{'SIDEMENU-submenuStudio' | translate}}</a>
               </li>
             </ul>
@@ -72,8 +70,8 @@
     </nz-header>
     <nz-content>
       <div class="inner-content">
-        <nz-breadcrumb nzSeparator=">">
-          <nz-breadcrumb-item [routerLink]="breadcrumb.url" *ngFor="let breadcrumb of breadcrumbs">{{breadcrumb.label}}</nz-breadcrumb-item>
+        <nz-breadcrumb nzSeparator=">" class="breadcrumb-container">
+          <nz-breadcrumb-item class="cursor" [routerLink]="breadcrumb.url" *ngFor="let breadcrumb of breadcrumbs">{{formatLabel(breadcrumb.label)}}</nz-breadcrumb-item>
         </nz-breadcrumb>
 
         <router-outlet></router-outlet>
