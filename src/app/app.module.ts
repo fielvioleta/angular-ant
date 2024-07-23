@@ -12,7 +12,7 @@ import { IconsProviderModule } from './icons-provider.module';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { WorkbenchComponent } from './workbench/workbench.component';
 import { GenesisComponent } from './genesis/genesis.component';
@@ -31,6 +31,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzFormModule } from 'ng-zorro-antd/form'
 
 registerLocaleData(en);
 
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AddGenesisProjectModalComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
@@ -66,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     NzModalModule,
     NzTableModule,
     NzDividerModule,
+    NzFormModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

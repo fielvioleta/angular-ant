@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BreadcrumbService } from './services/breadcrumb.service';
+import { CommonService } from './services/common.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent {
 
   constructor(
     private translate: TranslateService,
-    private breadcrumbService: BreadcrumbService
+    private breadcrumbService: BreadcrumbService,
+    private commonService:CommonService
   ) {
     this.translate.setDefaultLang('en');
 
@@ -26,9 +28,7 @@ export class AppComponent {
     this.translate.use(language);
   }
 
-  formatLabel(label: string): string {
-    return label
-      .replace(/-/g, ' ') // Replace hyphens with spaces
-      .replace(/\b\w/g, char => char.toUpperCase()); // Capitalize the first letter of each word
+  formatLabel(string: any) {
+    return this.commonService.formatLabel(string);
   }
 }
