@@ -67,6 +67,13 @@ nz-header {
   padding: 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
+
+  .profile-avatar {
+    background-color:#87d068;
+    position: absolute;
+    top: 20px;
+    right: 24px;
+  }
 }
 
 nz-content {

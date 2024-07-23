@@ -16,6 +16,13 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { WorkbenchComponent } from './workbench/workbench.component';
+import { GenesisComponent } from './genesis/genesis.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { StudioComponent } from './studio/studio.component';
+import {NzBreadCrumbModule} from 'ng-zorro-antd/breadcrumb';
+
 registerLocaleData(en);
 
 // AoT requires an exported function for factories
@@ -25,7 +32,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WorkbenchComponent,
+    GenesisComponent,
+    ProjectsComponent,
+    StudioComponent
   ],
   imports: [
     BrowserModule,
@@ -36,13 +47,15 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    NzAvatarModule,
+    NzBreadCrumbModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   bootstrap: [AppComponent]
 })
