@@ -10,7 +10,7 @@ import { CommonService } from '../../services/common.service';
 })
 export class AddGenesisProjectModalComponent {
   @Input() isVisible: boolean = false;
-  @Output() closedModal = new EventEmitter<void>();
+  @Output() closedModal = new EventEmitter();
 
   isConfirmLoading = false;
 
@@ -31,9 +31,9 @@ export class AddGenesisProjectModalComponent {
         value: this.commonService.formatLabel(this.router.url.split('/').pop()),
         disabled: true
       }],
-      name: ['', [Validators.required]],
-      code: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      name: ['', [Validators.required, this.nameValidator]],
+      code: ['', [Validators.required, this.codeValidator]],
+      description: ['', [this.descriptionValidator]],
     });
 
   }
@@ -56,8 +56,8 @@ export class AddGenesisProjectModalComponent {
       setTimeout(() => {
         this.isVisible = false;
         this.isConfirmLoading = false;
+        this.closedModal.emit(this.validateForm.value);
         this.validateForm.reset();
-        this.closedModal.emit();
       }, 1000);
 
     } else {
@@ -72,5 +72,40 @@ export class AddGenesisProjectModalComponent {
 
   isError(name: string) {
     return this.validateForm.get(name)?.invalid && !this.validateForm.get(name)?.pristine;
+  }
+
+  codeValidator(control: any) {
+    const pattern = /^[a-zA-Z0-9-_]+$/;
+    if (!control.value || pattern.test(control.value)) {
+      return null;
+    }
+    return { invalid: true };
+  }
+
+  nameValidator(control: any) {
+    const pattern = /^[\p{L}\p{N}.,'(){}\[\]"_& -]+$/u;
+    if (!control.value || pattern.test(control.value)) {
+      return null;
+    }
+    return { invalid: true };
+  }
+
+  descriptionValidator(control: any) {
+    const pattern = /^[\p{L}\p{N}.,?!:;'()\[\]"_& /<>-]+$/u;
+    if (!control.value || pattern.test(control.value)) {
+      return null;
+    }
+    return { invalid: true };
+  }
+
+  getErrorTip(controlName: string) {
+    const control = this.validateForm.get(controlName);
+    if (control?.hasError('required')) {
+      return `${controlName.toUpperCase} input is required`;
+    }
+    if (control?.hasError('invalid')) {
+      return 'Invalid format';
+    }
+    return '';
   }
 }

@@ -1,5 +1,5 @@
 <div class="model-development-container pt-5">
-    <app-add-genesis-project-modal [isVisible]="isShowModal" (closedModal)="closeModal()"></app-add-genesis-project-modal>
+    <app-add-genesis-project-modal [isVisible]="isShowModal" (closedModal)="closeModal($event)"></app-add-genesis-project-modal>
     <button nz-button nzType="primary" (click)="showModal()" class="mb-5">Add</button>
 
     <app-table-list [records]="records"></app-table-list>

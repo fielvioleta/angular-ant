@@ -22,7 +22,10 @@ export class ModelDevelopmentComponent {
     this.isShowModal = true;
   }
 
-  closeModal() {
+  closeModal(event: any) {
+    
     this.isShowModal = false;
+
+    this.records = [{...event, created: new Date().toISOString()}, ...this.records];
   }
 }
