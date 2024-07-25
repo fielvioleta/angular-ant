@@ -1,4 +1,8 @@
-# USERExam
+# How to run
+
+Clone repository
+npm install
+ng serve
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
 
