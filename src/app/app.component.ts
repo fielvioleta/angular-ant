@@ -25,7 +25,7 @@ export class AppComponent {
   }
 
   switchLanguage(language: string) {
-    this.translate.use(language);
+    this.translate.setDefaultLang(language);
   }
 
   formatLabel(string: any) {

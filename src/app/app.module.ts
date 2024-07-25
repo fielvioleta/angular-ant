@@ -33,6 +33,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 
 registerLocaleData(en);
@@ -72,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     NzTableModule,
     NzDividerModule,
     NzFormModule,
+    NzDropDownModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -65,6 +65,15 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></span>
         </span>
+
+        <button class="country-button" nz-button nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'topRight'">Language</button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item (click)="switchLanguage('en')">EN</li>
+            <li nz-menu-item (click)="switchLanguage('it')">IT</li>
+          </ul>
+        </nz-dropdown-menu>
+
         <nz-avatar nzIcon="user" class="profile-avatar"></nz-avatar>
       </div>
     </nz-header>

@@ -1,14 +1,10 @@
 {
-    "welcomeMessage": "Welcome to our application!",
-    "introText": "This is an example of a localized Angular app.",
 
-
-    "SIDEMENU": "START",
     "sideMenudashboard": "Dashboard",
     "sideMenuworkbench": "Workbench",
     "sideMenuadmin": "Admin",
 
-    "SIDEMENU-submenu": "START",
+
     "SIDEMENU-submenuGenesis": "Genesis",
     "SIDEMENU-submenuProjects": "Projects",
     "SIDEMENU-submenuStudio": "Studio"
