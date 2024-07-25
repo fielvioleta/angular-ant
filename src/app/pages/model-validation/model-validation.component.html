@@ -1,1 +1,5 @@
-<p>model-validation works!</p>
+<div class="model-validation-container pt-5">
+    <app-add-genesis-project-modal [isVisible]="isShowModal" (closedModal)="closeModal()"></app-add-genesis-project-modal>
+
+    <app-table-list [records]="records" (showModal)="showModal()"></app-table-list>
+</div>

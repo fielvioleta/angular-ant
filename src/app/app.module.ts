@@ -31,7 +31,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
-import { NzFormModule } from 'ng-zorro-antd/form'
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { TableListComponent } from './components/table-list/table-list.component'
 
 registerLocaleData(en);
 
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ModelDevelopmentComponent,
     ModelValidationComponent,
     AddGenesisProjectModalComponent,
+    TableListComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-model-development',
@@ -9,8 +10,12 @@ export class ModelDevelopmentComponent {
   isShowModal = false;
   records: any = [];
     
-  constructor() {
-    this.generateRecords();
+  constructor(
+    private commonService: CommonService
+  ) {
+    this.commonService.generateRecords().then(res => {
+        this.records = res;
+    });
   }
 
   showModal(){
@@ -19,22 +24,5 @@ export class ModelDevelopmentComponent {
 
   closeModal() {
     this.isShowModal = false;
-  }
-
-  generateRecords() {
-    const baseDate = new Date(Date.UTC(2024, 0, 1, 1, 0, 0)); 
-
-    for (let i = 1; i <= 16; i++) {
-      const projectDate = new Date(baseDate);
-      projectDate.setUTCDate(baseDate.getUTCDate() + (i - 1));
-      projectDate.setUTCHours(1 + (i - 1) % 24);
-
-      this.records.push({
-        name: `Project ${i}`,
-        code: `PROJECT_${i}`,
-        description: `This is project ${i}`,
-        created: projectDate.toISOString()
-      });
-    }
   }
 }
