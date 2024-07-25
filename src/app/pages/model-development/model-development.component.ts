@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./model-development.component.css']
 })
 export class ModelDevelopmentComponent {
-  isShowModal = true;
+  isShowModal = false;
   records: any = [];
     
   constructor() {

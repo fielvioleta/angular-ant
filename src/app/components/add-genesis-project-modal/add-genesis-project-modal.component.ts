@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, NonNullableFormBuilder, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommonService } from '../services/common.service';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-add-genesis-project-modal',
@@ -44,6 +44,7 @@ export class AddGenesisProjectModalComponent {
 
   handleCancel() {
     this.isVisible = false;
+    this.validateForm.reset();
     this.closedModal.emit();
   }
 
