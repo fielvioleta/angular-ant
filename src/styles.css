@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.cursor {
+    cursor: pointer;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.mb-5 {
+    margin-bottom: 20px;
+}
+
+.pt-5 {
+    padding-top: 20px;
+}

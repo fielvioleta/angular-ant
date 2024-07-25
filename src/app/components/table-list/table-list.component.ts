@@ -1,0 +1,15 @@
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+
+@Component({
+  selector: 'app-table-list',
+  templateUrl: './table-list.component.html',
+  styleUrls: ['./table-list.component.css']
+})
+export class TableListComponent {
+  @Input() records: any;
+  @Output() showModal = new EventEmitter();
+
+  editShowModal(){
+    this.showModal.emit(true);
+  }
+}

@@ -1,0 +1,50 @@
+<nz-modal
+    [(nzVisible)]="isVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="handleCancel()"
+>
+    <ng-template #modalTitle>Add Genesis Project</ng-template>
+
+    <ng-template #modalContent>
+        
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+            
+            <nz-form-item class="mb-4">
+              <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="projectType">Project Type</nz-form-label>
+              <nz-form-control>
+                <input nz-input formControlName="projectType" id="projectType" class="ant-input"/>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item class="mb-4">
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Name</nz-form-label>
+                <nz-form-control [nzErrorTip]="getErrorTip('name')">
+                    <input nz-input formControlName="name" id="name" class="ant-input" [ngClass]="{'ant-input-status-error': isError('name')}"/>
+              </nz-form-control>
+            </nz-form-item>
+            
+            <nz-form-item class="mb-4">
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="code">Code</nz-form-label>
+                <nz-form-control [nzErrorTip]="getErrorTip('code')">
+                    <input nz-input formControlName="code" id="code" class="ant-input" [ngClass]="{'ant-input-status-error': isError('code')}"/>
+                </nz-form-control>
+            </nz-form-item>
+            
+            <nz-form-item class="mb-4">
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="description">Description</nz-form-label>
+                <nz-form-control [nzErrorTip]="getErrorTip('description')">
+                    <textarea nz-input formControlName="description" id="description" class="ant-input" [ngClass]="{'ant-input-status-error': isError('description')}"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+
+        </form>
+
+    </ng-template>
+
+    <ng-template #modalFooter>
+    <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Confirm</button>
+    </ng-template>
+</nz-modal>

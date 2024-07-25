@@ -1,0 +1,8 @@
+<nz-tabset nzType="card" nzSelectedIndex="indexSelected">
+    <nz-tab nzTitle="Model Development" (nzClick)="navigateTo('model-development')">
+      <app-model-development *ngIf="selectedTab === 'model-development'"></app-model-development>
+    </nz-tab>
+    <nz-tab nzTitle="Model Validation" (nzClick)="navigateTo('model-validation')">
+      <app-model-validation *ngIf="selectedTab === 'model-validation'"></app-model-validation>
+    </nz-tab>
+</nz-tabset>

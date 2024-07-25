@@ -1,0 +1,11 @@
+{
+
+    "sideMenudashboard": "Dashboard",
+    "sideMenuworkbench": "Workbench",
+    "sideMenuadmin": "Admin",
+
+
+    "SIDEMENU-submenuGenesis": "Genesis",
+    "SIDEMENU-submenuProjects": "Projects",
+    "SIDEMENU-submenuStudio": "Studio"
+}
